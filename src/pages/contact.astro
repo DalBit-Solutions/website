@@ -1,0 +1,34 @@
+---
+import '@picocss/pico';
+---
+
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Kontakt | DalBit Solutions</title>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h1>DalBit Solutions</h1>
+			</div>
+		</header>
+		<main>
+			<section class="container">
+				<h2>Kontakt</h2>
+                <form name="Kontakt" netlify>
+                    <label for="input-name">Name</label>
+                    <input id="input-name" type="text" name="name" placeholder="Name" autocomplete="name" />
+                    <label for="input-email">E-Mail-Adresse</label>
+                    <input id="input-email" type="email" name="email" placeholder="E-Mail-Adresse" autocomplete="email" />
+                    <label for="input-message">Nachricht</label>
+                    <textarea id="input-message" name="message" placeholder="Nachricht" autocomplete="name" />
+                    <button type="submit">Senden</button>
+                </form>
+			</section>
+		</main>
+	</body>
+</html>
