@@ -1,26 +1,64 @@
 ---
-import '@picocss/pico';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>DalBit Solutions</title>
-	</head>
-	<body>
-		<header>
-			<div class="container">
-				<a href="/"><h1>DalBit Solutions</h1></a>
-			</div>
-		</header>
-		<main>
-			<section class="container">
-				<p>Demnächst ...</p>
-				<a href="/contact" role="button">Kontakt</a>
-			</section>
-		</main>
-	</body>
-</html>
+<BaseLayout>
+	<section class="hero">
+		<picture>
+			<img
+				src="https://static.independent.co.uk/2022/12/29/14/iStock-464629385.jpg?quality=75&width=1000&crop=3%3A2%2Csmart&auto=webp"
+			/>
+		</picture>
+		<div data-theme="dark" class="hero-content container">
+			<h1>Erreichen Sie digitale Barrierefreiheit mit DalBit Solutions</h1>
+			<p>Wir bieten umfassende Audits und Designüberarbeitungen, um Ihre Webseite für alle zugänglich zu machen.</p>
+			<a href="/contact" role="button">Kontaktieren Sie uns!</a>
+		</div>
+	</section>
+	<section class="container">
+		<p>Demnächst ...</p>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		overflow: hidden;
+		position: relative;
+	}
+
+	.hero > picture {
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: -1;
+	}
+	
+	.hero > picture > img {
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+	}
+
+	.hero > picture::after {
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+		content: " ";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 0;
+	}
+
+	.hero > .hero-content {
+		padding: 7rem 0;
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero > .hero-content > * {
+		max-width: 50%;
+	}
+</style>
