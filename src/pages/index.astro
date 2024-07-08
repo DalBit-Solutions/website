@@ -10,13 +10,68 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			/>
 		</picture>
 		<div data-theme="dark" class="hero-content container">
-			<h1>Erreichen Sie digitale Barrierefreiheit mit DalBit Solutions</h1>
-			<p>Wir bieten umfassende Audits und Designüberarbeitungen, um Ihre Webseite für alle zugänglich zu machen.</p>
+			<h1>
+				Erreichen Sie digitale Barrierefreiheit mit DalBit Solutions
+			</h1>
+			<p>
+				Wir bieten umfassende Audits und Designüberarbeitungen, um Ihre
+				Webseite für alle zugänglich zu machen.
+			</p>
 			<a href="/contact" role="button">Kontaktieren Sie uns!</a>
 		</div>
 	</section>
 	<section class="container">
-		<p>Demnächst ...</p>
+		<h2>Unsere Leistungen</h2>
+		<div class="grid">
+			<article>
+				<h3>Barrierefreiheits-Audits</h3>
+				<p>
+					Unser erfahrenes Team führt detaillierte Audits durch, um
+					alle Aspekte der digitalen Barrierefreiheit Ihrer Webseite
+					zu analysieren und zu bewerten.
+				</p>
+			</article>
+
+			<article>
+				<h3>Designüberarbeitungen</h3>
+				<p>
+					Wir passen das bestehende Design Ihrer Webseite an, um
+					sicherzustellen, dass es allen Nutzern zugänglich ist, ohne
+					das ursprüngliche Branding zu verlieren.
+				</p>
+			</article>
+		</div>
+	</section>
+	<section class="container">
+		<h2>Warum DalBit Solutions?</h2>
+		<div class="grid">
+			<article>
+				<h3>Expertenwissen und Erfahrung</h3>
+				<p>
+					Mit jahrelanger Erfahrung und tiefgreifendem Wissen im
+					Bereich der digitalen Barrierefreiheit sind wir Ihr
+					zuverlässiger Partner für barrierefreie Weblösungen.
+				</p>
+			</article>
+
+			<article>
+				<h3>Maßgeschneiderte Lösungen</h3>
+				<p>
+					Unsere Dienstleistungen werden individuell auf die
+					Bedürfnisse Ihres Unternehmens und Ihrer Zielgruppe
+					zugeschnitten, um optimale Ergebnisse zu erzielen.
+				</p>
+			</article>
+
+			<article>
+				<h3>Nachhaltige Implementierung</h3>
+				<p>
+					Wir setzen nachhaltige und zukunftssichere Lösungen um, die
+					nicht nur aktuellen Standards entsprechen, sondern auch
+					zukünftigen Anforderungen gerecht werden.
+				</p>
+			</article>
+		</div>
 	</section>
 </BaseLayout>
 
@@ -33,7 +88,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		width: 100%;
 		z-index: -1;
 	}
-	
+
 	.hero > picture > img {
 		height: 100%;
 		object-fit: cover;
@@ -42,7 +97,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	}
 
 	.hero > picture::after {
-		background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+		background: linear-gradient(
+			to right,
+			rgba(0, 0, 0, 0.8),
+			rgba(0, 0, 0, 0.2)
+		);
 		content: " ";
 		height: 100%;
 		left: 0;

@@ -25,20 +25,45 @@ import "@picocss/pico/css/pico.blue.min.css";
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="#">Über uns</a></li>
-                    <li><a href="#">Leistungen</a></li>
+                    <li><a href="/about">Über uns</a></li>
+                    <li><a href="/services">Leistungen</a></li>
+                    <li><a href="/blog">Blog</a></li>
                     <li><a href="/contact">Kontakt</a></li>
+                    <li><a href="/#menu">–</a></li>
                 </ul>
             </nav>
         </header>
         <main>
             <slot />
         </main>
-        <footer>
+        <aside id="menu">
             <nav class="container">
                 <ul>
+                    <li>
+                        <a title="Startseite" href="/"
+                            ><img
+                                src="/dalbit-logo-text.svg"
+                                width="117"
+                                alt="DalBit Logo"
+                            /></a
+                        >
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="/about">Über uns</a></li>
+                    <li><a href="/services">Leistungen</a></li>
+                    <li><a href="/blog">Blog</a></li>
                     <li><a href="/contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <footer>
+            <hr>
+            <nav class="container">
+                <ul>
                     <li><a href="/imprint">Impressum</a></li>
+                    <li><a href="/contact">Kontakt</a></li>
+                    <li><a href="/privacy">Datenschutz</a></li>
                 </ul>
                 <ul>
                     <li>© 2024 DalBit Solutions - Alexander Fridlin</li>
@@ -51,5 +76,20 @@ import "@picocss/pico/css/pico.blue.min.css";
 <style>
     main {
         padding-top: 0 !important;
+    }
+
+    #menu {
+        background-color: var(--pico-background-color);
+        display: none;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    #menu:target {
+        display: unset;
     }
 </style>
