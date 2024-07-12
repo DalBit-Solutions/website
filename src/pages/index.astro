@@ -112,12 +112,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	}
 
 	.hero > .hero-content {
-		padding: 7rem 0;
+		padding-bottom: 7rem;
+		padding-top: 7rem;
 		position: relative;
 		z-index: 1;
 	}
 
-	.hero > .hero-content > * {
-		max-width: 50%;
+	@media screen and (min-width: 768px) {
+		.hero > .hero-content > * {
+			max-width: 50%;
+		}
 	}
 </style>
