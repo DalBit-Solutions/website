@@ -81,7 +81,17 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
         </main>
         <footer>
             <hr />
-            <nav class="container">
+            <aside class="menu">
+                <nav class="container">
+                    <ul>
+                        <li><a href="/imprint">Impressum</a></li>
+                        <li><a href="/contact">Kontakt</a></li>
+                        <li><a href="/privacy">Datenschutz</a></li>
+                        <li>© 2024 DalBit Solutions - Alexander Fridlin</li>
+                    </ul>
+                </nav>
+            </aside>
+            <nav class="menu-large container">
                 <ul>
                     <li><a href="/imprint">Impressum</a></li>
                     <li><a href="/contact">Kontakt</a></li>
@@ -106,7 +116,7 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
         }
 
         .menu-large {
-            display: unset;
+            display: flex;
         }
     }
 
