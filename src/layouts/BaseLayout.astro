@@ -42,6 +42,7 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
                                 src="/dalbit-logo-text.svg"
                                 width="117"
                                 alt="DalBit Logo"
+                                class="logo"
                             /></a
                         >
                     </li>
@@ -106,6 +107,12 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
 </html>
 
 <style>
+    @media (prefers-color-scheme: dark) {
+        .logo {
+            filter: invert(1);
+        }
+    }
+
     .menu-large {
         display: none;
     }
