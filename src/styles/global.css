@@ -1,0 +1,8 @@
+.sr-only {
+    height: 1px;
+    left: -99999px;
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+    z-index: -1;
+}
