@@ -9,8 +9,8 @@
             href: "#ueber-uns",
         },
         {
-            label: "Kontakt",
-            href: "#kontakt",
+            label: "Ihre Anfrage",
+            href: "#ihre-anfrage",
         },
     ];
 </script>
