@@ -1,4 +1,6 @@
 <script>
+    import dalBitLogoTextSvg from "../images/dalbit-logo-text.svg";
+
     const menuItems = [
         {
             label: "Leistungen",
@@ -20,7 +22,7 @@
         <li>
             <a title="Startseite" href="/"
                 ><img
-                    src="/dalbit-logo-text.svg"
+                    src={dalBitLogoTextSvg.src}
                     width="117"
                     alt="DalBit Logo"
                     class="logo"
