@@ -28,3 +28,7 @@
         display: none;
     }
 }
+
+main > section {
+    margin-bottom: calc(2 * var(--pico-nav-element-spacing-vertical));
+}
