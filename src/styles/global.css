@@ -1,6 +1,8 @@
 :root {
     --menu-button-size: 24px;
     --menu-button-line-thickness: 4px;
+
+    scroll-behavior: smooth;
 }
 
 .sr-only {
