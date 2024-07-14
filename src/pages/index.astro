@@ -17,7 +17,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				Wir bieten umfassende Audits und Designüberarbeitungen, um Ihre
 				Webseite für alle zugänglich zu machen.
 			</p>
-			<a href="/contact" role="button">Kontaktieren Sie uns!</a>
+			<a href="/#kontakt" role="button">Kontaktieren Sie uns!</a>
 		</div>
 	</section>
 	<section class="container">
@@ -70,6 +70,43 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					nicht nur aktuellen Standards entsprechen, sondern auch
 					zukünftigen Anforderungen gerecht werden.
 				</p>
+			</article>
+		</div>
+	</section>
+	<section id="kontakt" class="container">
+		<h2>Kontaktieren Sie DalBit Solutions</h2>
+		<div class="grid">
+			<div>
+				<h3>Wir freuen uns von Ihnen zu hören!</h3>
+				<p>Haben Sie Fragen an uns oder möchten Sie eine unserer Dienstleistungen in Anspruch nehmen? Nutzen Sie gerne unser Kontaktformular, um uns Ihr Anliegen mitzuteilen. Wir werden uns so schnell wie möglich bei Ihnen melden, um Ihre Bedürfnisse zu besprechen und Ihnen weiterzuhelfen.</p>
+			</div>
+
+			<article>
+				<h3>Schreiben Sie uns</h3>
+				<form name="contact" netlify>
+					<label for="input-name">Name</label>
+					<input
+					id="input-name"
+					type="text"
+					name="name"
+					placeholder="Max Mustermann"
+					autocomplete="name"
+					/>
+					<label for="input-email">E-Mail-Adresse</label>
+					<input
+					id="input-email"
+					type="email"
+					name="email"
+					placeholder="max.mustermann@example.com"
+					autocomplete="email"
+					/>
+					<label for="input-message">Nachricht</label>
+					<textarea
+					id="input-message"
+					name="message"
+					placeholder="Was liegt Ihnen auf dem Herzen?"></textarea>
+					<button type="submit">Senden</button>
+				</form>
 			</article>
 		</div>
 	</section>
