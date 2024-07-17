@@ -117,29 +117,18 @@ import planeSvg from "../images/plane.svg";
 						name="Name"
 						placeholder="Vor- und Nachname"
 						autocomplete="name"
+						required
 					/>
 					<label for="input-email">E-Mail-Adresse</label>
 					<input
-					id="input-email"
-					type="email"
-					name="email"
-					placeholder="max.mustermann@example.com"
-					autocomplete="email"
-					/>
-					<label for="input-services">Relevante Dienstleistungen</label>
-					<select
-						id="input-services"
-						name="Relevante Dienstleistungen"
+						id="input-email"
+						type="email"
+						name="email"
+						placeholder="max.mustermann@example.com"
+						autocomplete="email"
 						required
-					>
-						<option selected disabled value="">
-							An welchen Dienstleistungen haben Sie Interesse?
-						</option>
-						<option value="Barrierefreiheits-Audit">Barrierefreiheits-Audit</option>
-						<option value="Designüberarbeitung">Designüberarbeitung</option>
-						<option value="beide">beide</option>
-					</select>
-					<label for="input-message">Nachricht</label>
+					/>
+					<label for="input-message">Nachricht (optional)</label>
 					<textarea
 						id="input-message"
 						name="Nachricht"
