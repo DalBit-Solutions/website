@@ -109,8 +109,8 @@ import planeSvg from "../images/plane.svg";
 			</div>
 
 			<article>
-				<h3>Schreiben Sie uns</h3>
-				<Form name="Neukunden">
+				<Form name="Neukunden" client:visible>
+					<h3 slot="legend">Schreiben Sie uns</h3>
 					<label for="input-name">Name</label>
 					<input
 						id="input-name"
@@ -134,7 +134,6 @@ import planeSvg from "../images/plane.svg";
 						id="input-message"
 						name="Nachricht"
 						placeholder="Was können wir für Sie tun?"></textarea>
-					<button type="submit">Senden</button>
 				</Form>
 			</article>
 		</div>
