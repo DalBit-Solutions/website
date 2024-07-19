@@ -24,6 +24,7 @@
 <form {name} data-netlify="true" on:submit|preventDefault={handleSubmit}>
     <fieldset disabled={waiting || succesful}>
         <legend><slot name="legend" /></legend>
+        <input type="hidden" name="form-name" value={name} />
         <slot />
     </fieldset>
     {#if succesful}
