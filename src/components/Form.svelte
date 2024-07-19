@@ -21,7 +21,7 @@
     }
 </script>
 
-<form {name} netlify on:submit|preventDefault={handleSubmit}>
+<form {name} data-netlify="true" on:submit|preventDefault={handleSubmit}>
     <fieldset disabled={waiting || succesful}>
         <legend><slot name="legend" /></legend>
         <slot />
