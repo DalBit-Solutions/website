@@ -18,7 +18,7 @@ Alternativ haben Sie die Möglichkeit unser [Kontaktformular](/kontakt) zu nutze
 ## Umsatzsteuer-ID
 
 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:  
-DE999999999
+_[TBD]_
 
 ## Gewerbeanmeldung
 
