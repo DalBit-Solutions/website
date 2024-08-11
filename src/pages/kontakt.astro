@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Form from "../components/Form.svelte";
+import { Image } from "astro:assets";
+import planeSvg from "../images/plane.svg";
+---
+
+<BaseLayout>
+    <section id="ihre-anfrage" class="container">
+        <h2>Kontakt</h2>
+        <div class="grid">
+            <div>
+                <h3>Schreiben Sie uns</h3>
+                <p>
+                    Bitte formulieren Sie Ihre Frage so genau wie möglich und
+                    vergewissern Sie sich, dass Sie Ihre Kontaktdaten korrekt
+                    angeben. In der Regel erhalten Sie innerhalb von drei
+                    Werktagen eine Antwort (bei komplexeren Fragen kann es
+                    länger dauern).
+                </p>
+                <img
+                    src={planeSvg.src}
+                    alt=""
+                    class="display-none display-inline-large"
+                />
+            </div>
+
+            <article>
+                <Form name="Kontakt" client:visible>
+                    <h3 slot="legend">Kontaktformular</h3>
+                    <label for="input-name">Name</label>
+                    <input
+                        id="input-name"
+                        type="text"
+                        name="Name"
+                        placeholder="Vor- und Nachname"
+                        autocomplete="name"
+                        required
+                    />
+                    <label for="input-email">E-Mail-Adresse</label>
+                    <input
+                        id="input-email"
+                        type="email"
+                        name="E-Mail-Adresse"
+                        placeholder="mail@example.com"
+                        autocomplete="email"
+                        required
+                    />
+                    <label for="input-message">Nachricht (optional)</label>
+                    <textarea
+                        id="input-message"
+                        name="Nachricht"
+                        placeholder="Was können wir für Sie tun?"></textarea>
+                    <p>
+                        Unsere Datenschutzhinweise können Sie <a
+                            href="/datenschutz">hier</a
+                        > einsehen.
+                    </p>
+                </Form>
+            </article>
+        </div>
+    </section>
+</BaseLayout>
