@@ -14,43 +14,28 @@ import planeSvg from "../images/plane.svg";
                 <p>
                     Bitte formulieren Sie Ihre Frage so genau wie möglich und
                     vergewissern Sie sich, dass Sie Ihre Kontaktdaten korrekt
-                    angeben. In der Regel erhalten Sie innerhalb von drei
-                    Werktagen eine Antwort (bei komplexeren Fragen kann es
-                    länger dauern).
+                    angeben. In der Regel erhalten Sie innerhalb von 24 Stunden
+                    eine Antwort. Bei komplexeren Fragen kann es etwas länger
+                    dauern.
                 </p>
-                <img
-                    src={planeSvg.src}
-                    alt=""
-                    class="display-none display-inline-large"
-                />
             </div>
 
             <article>
                 <Form name="Kontakt" client:visible>
                     <h3 slot="legend">Kontaktformular</h3>
-                    <label for="input-name">Name</label>
-                    <input
-                        id="input-name"
-                        type="text"
-                        name="Name"
-                        placeholder="Vor- und Nachname"
-                        autocomplete="name"
-                        required
-                    />
                     <label for="input-email">E-Mail-Adresse</label>
                     <input
                         id="input-email"
                         type="email"
-                        name="E-Mail-Adresse"
-                        placeholder="mail@example.com"
+                        name="email"
                         autocomplete="email"
                         required
                     />
-                    <label for="input-message">Nachricht (optional)</label>
+                    <label for="input-message">Nachricht</label>
                     <textarea
                         id="input-message"
-                        name="Nachricht"
-                        placeholder="Was können wir für Sie tun?"></textarea>
+                        name="message"
+                        required></textarea>
                     <p>
                         Unsere Datenschutzhinweise können Sie <a
                             href="/datenschutz">hier</a
