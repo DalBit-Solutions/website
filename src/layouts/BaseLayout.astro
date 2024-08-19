@@ -34,14 +34,22 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
         <title>{fullTitle}</title>
     </head>
     <body>
-        <header>
+        <aside class="anchors">
+            <nav>
+                <ul>
+                    <li><a href="#hauptinhalt">Zum Hauptinhalt springen</a></li>
+                    <li><a href="#fusszeile">Zur Fußzeile springen</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <header id="kopfzeile">
             <Navigation />
         </header>
-        <main>
+        <main id="hauptinhalt">
             <slot />
         </main>
         <hr />
-        <footer>
+        <footer id="fusszeile">
             <aside class="display-none-large">
                 <nav class="container">
                     <ul>
@@ -71,5 +79,19 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
 <style>
     header + main {
         padding-top: 0;
+    }
+
+    aside.anchors {
+        left: 0;
+        position: absolute;
+        top: -100%;
+    }
+
+    aside.anchors:focus-within {
+        top: 0;
+    }
+
+    aside.anchors ul {
+        background-color: var(--pico-background-color);
     }
 </style>
