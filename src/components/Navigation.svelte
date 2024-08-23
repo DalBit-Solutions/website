@@ -1,20 +1,6 @@
 <script>
     import dalBitLogoTextSvg from "../images/dalbit-logo-text.svg";
-
-    const menuItems = [
-        {
-            label: "Leistungen",
-            href: "#leistungen",
-        },
-        {
-            label: "Über uns",
-            href: "#ueber-uns",
-        },
-        {
-            label: "Ihre Anfrage",
-            href: "#ihre-anfrage",
-        },
-    ];
+    export let menuItems = [];
 </script>
 
 <nav class="container">
@@ -30,28 +16,30 @@
             >
         </li>
     </ul>
-    <ul class="display-none-large">
-        <li>
-            <input type="checkbox" id="menu-button" class="sr-only" />
-            <label for="menu-button">
-                <span></span>
-            </label>
-            <aside>
-                <nav class="container">
-                    <ul>
-                        {#each menuItems as item}
-                            <li><a href={item.href}>{item.label}</a></li>
-                        {/each}
-                    </ul>
-                </nav>
-            </aside>
-        </li>
-    </ul>
-    <ul class="display-none display-flex-large">
-        {#each menuItems as item}
-            <li><a href={item.href}>{item.label}</a></li>
-        {/each}
-    </ul>
+    {#if menuItems.length > 0}
+        <ul class="display-none-large">
+            <li>
+                <input type="checkbox" id="menu-button" class="sr-only" />
+                <label for="menu-button">
+                    <span></span>
+                </label>
+                <aside>
+                    <nav class="container">
+                        <ul>
+                            {#each menuItems as item}
+                                <li><a href={item.href}>{item.label}</a></li>
+                            {/each}
+                        </ul>
+                    </nav>
+                </aside>
+            </li>
+        </ul>
+        <ul class="display-none display-flex-large">
+            {#each menuItems as item}
+                <li><a href={item.href}>{item.label}</a></li>
+            {/each}
+        </ul>
+    {/if}
 </nav>
 
 <style>

@@ -8,14 +8,37 @@ import bulpSvg from "../images/bulb.svg";
 import rulerSvg from "../images/ruler.svg";
 import rocketSvg from "../images/rocket.svg";
 import planeSvg from "../images/plane.svg";
+
+const head = {
+	meta: {
+		description:
+			"Wir führen umfassende Audits und Optimierungen durch, um Ihre Website nach BITV 2.0 und WCAG barrierefrei zu gestalten. Unsere Dienstleistungen sorgen dafür, dass Ihre Website für alle Nutzer zugänglich und benutzerfreundlich ist.",
+		keywords: ["BITV 2.0", "WCAG", "a11y"],
+	},
+};
+
+const headerNavMenuItems = [
+	{
+		label: "Leistungen",
+		href: "#leistungen",
+	},
+	{
+		label: "Über uns",
+		href: "#ueber-uns",
+	},
+	{
+		label: "Ihre Anfrage",
+		href: "#ihre-anfrage",
+	},
+];
 ---
 
-<BaseLayout>
+<BaseLayout head={head} headerNavMenuItems={headerNavMenuItems}>
 	<section class="hero">
 		<picture>
 			<Image
 				src="https://res.cloudinary.com/fridlin/image/upload/v1720972086/DalBit%20Website/seoul_ofjnlv.jpg"
-				alt="Panoramablick auf die beleuchtete Skyline von Seoul bei Nacht mit dem N Seoul Tower auf dem Namsan-Berg im Hintergrund."
+				alt="Panoramablick auf die beleuchtete Skyline von Seoul bei Nacht"
 				width={4716}
 				height={2653}
 				loading="eager"
@@ -27,8 +50,8 @@ import planeSvg from "../images/plane.svg";
 				Erreichen Sie digitale Barrierefreiheit mit DalBit Solutions
 			</h1>
 			<p>
-				Wir bieten umfassende Audits und Designüberarbeitungen, um Ihre
-				Website für alle zugänglich zu machen.
+				Wir bieten umfassende Audits und Optimierungen, um Ihre Website
+				für alle zugänglich zu machen.
 			</p>
 			<a href="/#ihre-anfrage" role="button">Kontaktieren Sie uns</a>
 		</div>
@@ -38,21 +61,23 @@ import planeSvg from "../images/plane.svg";
 		<div class="grid">
 			<article>
 				<img src={auditsSvg.src} alt="" />
-				<h3>Barrierefreiheits-Audits</h3>
+				<h3>Barrierefreiheits-Checks</h3>
 				<p>
-					Unser erfahrenes Team führt detaillierte Audits durch, um
-					alle Aspekte der digitalen Barrierefreiheit Ihrer Website zu
-					analysieren und zu bewerten.
+					Wir führen Audits und Tests durch, um die Barrierefreiheit
+					Ihrer Website zu überprüfen. Dabei stellen wir sicher, dass
+					sie den Anforderungen der BITV 2.0 und WCAG entspricht und
+					für alle Nutzer zugänglich ist.
 				</p>
 			</article>
 
 			<article>
 				<img src={redesignSvg.src} alt="" />
-				<h3>Designüberarbeitungen</h3>
+				<h3>Optimierung für Barrierefreiheit</h3>
 				<p>
-					Wir passen das bestehende Design Ihrer Website an, um
-					sicherzustellen, dass es allen Nutzern zugänglich ist, ohne
-					das ursprüngliche Branding zu verlieren.
+					Wir verbessern Design und Code Ihrer Website, um die
+					Zugänglichkeit für alle Nutzer zu gewährleisten. Dabei
+					achten wir auf die Einhaltung von BITV 2.0 und WCAG, ohne
+					das ursprüngliche Branding zu verändern.
 				</p>
 			</article>
 		</div>
@@ -121,37 +146,8 @@ import planeSvg from "../images/plane.svg";
 						autocomplete="email"
 						required
 					/>
-					<div class="grid">
-						<div>
-							<label for="input-firstname">Vorname</label>
-							<input
-								id="input-firstname"
-								type="text"
-								name="firstname"
-								autocomplete="given-name"
-								required
-							/>
-						</div>
-						<div>
-							<label for="input-lastname">Nachname</label>
-							<input
-								id="input-lastname"
-								type="text"
-								name="lastname"
-								autocomplete="family-name"
-								required
-							/>
-						</div>
-					</div>
-					<label for="input-message">Nachricht (optional)</label>
-					<textarea
-						id="input-message"
-						name="message"></textarea>
-					<p>
-						Unsere Datenschutzhinweise können Sie <a
-							href="/datenschutz">hier</a
-						> einsehen.
-					</p>
+					<label for="input-message">Nachricht</label>
+					<textarea id="input-message" name="message"></textarea>
 				</Form>
 			</article>
 		</div>

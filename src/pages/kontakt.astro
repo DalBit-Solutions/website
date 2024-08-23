@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Form from "../components/Form.svelte";
-import { Image } from "astro:assets";
-import planeSvg from "../images/plane.svg";
+
+const head = {
+    meta: {},
+    title: "Kontakt",
+};
 ---
 
-<BaseLayout>
+<BaseLayout head={head}>
     <section id="ihre-anfrage" class="container">
         <h2>Kontakt</h2>
         <div class="grid">
@@ -19,7 +22,6 @@ import planeSvg from "../images/plane.svg";
                     dauern.
                 </p>
             </div>
-
             <article>
                 <Form name="Kontakt" client:visible>
                     <h3 slot="legend">Kontaktformular</h3>
@@ -32,15 +34,8 @@ import planeSvg from "../images/plane.svg";
                         required
                     />
                     <label for="input-message">Nachricht</label>
-                    <textarea
-                        id="input-message"
-                        name="message"
-                        required></textarea>
-                    <p>
-                        Unsere Datenschutzhinweise können Sie <a
-                            href="/datenschutz">hier</a
-                        > einsehen.
-                    </p>
+                    <textarea id="input-message" name="message" required
+                    ></textarea>
                 </Form>
             </article>
         </div>

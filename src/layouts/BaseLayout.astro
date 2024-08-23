@@ -1,37 +1,17 @@
 ---
 import "@picocss/pico/css/pico.blue.min.css";
 import "../styles/global.css";
-import Navigation from '../components/Navigation.svelte';
+import HeadContent from "../components/HeadContent.svelte";
+import Navigation from "../components/Navigation.svelte";
 
-const { pageTitle } = Astro.props;
-const siteName = "DalBit Solutions";
-const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
+const { head, headerNavMenuItems } = Astro.props;
+const year = (new Date()).getFullYear();
 ---
 
 <html lang="de">
     <head>
-        <meta charset="utf-8" />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{fullTitle}</title>
+        <HeadContent data={head} />
+        <meta name="generator" content={Astro.generator}>
     </head>
     <body>
         <aside class="anchors">
@@ -43,7 +23,7 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
             </nav>
         </aside>
         <header id="kopfzeile">
-            <Navigation />
+            <Navigation menuItems={headerNavMenuItems} />
         </header>
         <main id="hauptinhalt">
             <slot />
@@ -53,7 +33,9 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
             <aside class="display-none-large">
                 <nav class="container">
                     <ul>
-                        <li><a href="/barrierefreiheit">Barrierefreiheit</a></li>
+                        <li>
+                            <a href="/barrierefreiheit">Barrierefreiheit</a>
+                        </li>
                         <li><a href="/datenschutz">Datenschutz</a></li>
                         <li><a href="/impressum">Impressum</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
@@ -69,7 +51,7 @@ const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
                     <li><a href="/kontakt">Kontakt</a></li>
                 </ul>
                 <ul>
-                    <li>© 2024 DalBit Solutions - Alexander Fridlin</li>
+                    <li>© {year} DalBit Solutions - Alexander Fridlin</li>
                 </ul>
             </nav>
         </footer>

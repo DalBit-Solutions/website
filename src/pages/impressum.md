@@ -1,5 +1,8 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
+head:
+    meta:
+    title: Impressum
 ---
 
 # Impressum

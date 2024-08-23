@@ -1,5 +1,8 @@
 ---
 layout: ../layouts/MarkdownLayout.astro
+head:
+    meta:
+    title: Erklärung zur Barrierefreiheit
 ---
 
 # Erklärung zur Barrierefreiheit

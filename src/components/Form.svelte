@@ -27,6 +27,12 @@
         <input type="hidden" name="form-name" value={name} />
         <slot />
     </fieldset>
+    <p>
+        Die übermittelten Daten werden verwendet, um Ihre Anfrage zu bearbeiten.
+        Weitere Informationen finden Sie in unserer <a href="/datenschutz"
+            >Datenschutzerklärung</a
+        >.
+    </p>
     {#if succesful}
         <output role="alert">
             <strong>

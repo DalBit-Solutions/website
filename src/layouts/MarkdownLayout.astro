@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout head={frontmatter.head}>
     <section class="container">
         <slot />
     </section>
