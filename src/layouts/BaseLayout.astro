@@ -23,7 +23,7 @@ const year = (new Date()).getFullYear();
             </nav>
         </aside>
         <header id="kopfzeile">
-            <Navigation menuItems={headerNavMenuItems} />
+            <Navigation menuItems={headerNavMenuItems} client:load />
         </header>
         <main id="hauptinhalt">
             <slot />
@@ -70,7 +70,8 @@ const year = (new Date()).getFullYear();
     }
 
     aside.anchors:focus-within {
-        top: 0;
+        left: 1rem;
+        top: 0.5rem;
     }
 
     aside.anchors ul {

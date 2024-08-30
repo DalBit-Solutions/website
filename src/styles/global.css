@@ -6,7 +6,6 @@
 }
 
 .sr-only {
-    appearance: none;
     border: none;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -14,6 +13,7 @@
     overflow: hidden;
     padding: 0;
     position: absolute;
+    white-space: nowrap;
     width: 1px;
 }
 
