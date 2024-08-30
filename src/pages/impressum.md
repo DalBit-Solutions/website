@@ -21,21 +21,21 @@ Alternativ haben Sie die Möglichkeit unser [Kontaktformular](/kontakt) zu nutze
 ## Umsatzsteuer-ID
 
 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:  
-_[TBD]_
+DE369239655
 
 ## Gewerbeanmeldung
 
 Die Gewerbeerlaubnis nach § 34c GewO wurde am 01.07.2024 von folgender Stelle erteilt: Handelskammer Hamburg.
 
-## Angaben zur Berufs­haftpflicht­versicherung
+[comment]: # (## Angaben zur Berufs­haftpflicht­versicherung)
 
-**Name und Sitz des Versicherers:**  
-Beispiel Versicherung AG  
-Musterweg 10  
-90210 Musterstadt
+[comment]: # (**Name und Sitz des Versicherers:**  )
+[comment]: # (Beispiel Versicherung AG  )
+[comment]: # (Musterweg 10  )
+[comment]: # (90210 Musterstadt)
 
-**Geltungsraum der Versicherung:**  
-Deutschland
+[comment]: # (**Geltungsraum der Versicherung:**  )
+[comment]: # (Deutschland)
 
 ## EU-Streitschlichtung
 
