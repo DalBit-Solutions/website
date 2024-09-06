@@ -6,15 +6,25 @@ head:
 ---
 
 # Impressum
-  
-DalBit Solutions - Alexander Fridlin  
-Musterstraße 111  
-Gebäude 44  
-90210 Musterstadt
+
+<address
+    data-anti-spam
+    data-content="DalBit Solutions - Alexander Fridlin<br>Musterstraße 1<br>66666 Musterstadt">
+    DalBit Solutions - Alexander Fridlin<br>
+    Straße Hausnummer<br>
+    PLZ Ort
+</address>
 
 ## Kontakt
 
-E-Mail: info@dalbit.de
+E-Mail:
+<a
+    href="#"
+    data-anti-spam
+    data-content="info@dalbit.de"
+    data-href="mailto:info@dalbit.de">
+    E-Mail-Adresse
+</a>
 
 Alternativ haben Sie die Möglichkeit unser [Kontaktformular](/kontakt) zu nutzen.
 
@@ -50,7 +60,14 @@ Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
 
 Unsere zentrale Kontaktstelle für Nutzer und Behörden nach Art. 11, 12 DSA erreichen Sie wie folgt:
 
-E-Mail: info@dalbit.de
+E-Mail:
+<a
+    href="#"
+    data-anti-spam
+    data-content="info@dalbit.de"
+    data-href="mailto:info@dalbit.de">
+    E-Mail-Adresse
+</a>
 
 Die für den Kontakt zur Verfügung stehenden Sprachen sind: Deutsch, Englisch.
 

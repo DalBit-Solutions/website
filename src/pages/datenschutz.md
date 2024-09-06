@@ -67,10 +67,22 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kom
 
 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
 
-**Beispielfirma**  
-Musterweg 10  
-90210 Musterstadt  
-E-Mail: info@dalbit.de
+<address
+    data-anti-spam
+    data-content="DalBit Solutions - Alexander Fridlin<br>Musterstraße 1<br>66666 Musterstadt">
+    DalBit Solutions - Alexander Fridlin<br>
+    Straße Hausnummer<br>
+    PLZ Ort
+</address>
+
+E-Mail:
+<a
+    href="#"
+    data-anti-spam
+    data-content="info@dalbit.de"
+    data-href="mailto:info@dalbit.de">
+    E-Mail-Adresse
+</a>
 
 Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
 
