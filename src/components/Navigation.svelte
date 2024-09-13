@@ -43,8 +43,15 @@
             </li>
         </ul>
         <ul class="display-none display-flex-large">
-            {#each menuItems as item}
-                <li><a href={item.href}>{item.label}</a></li>
+            {#each menuItems as item, index}
+                <li>
+                    <a
+                        href={item.href}
+                        class={index === menuItems.length - 1 ? "contrast" : ""}
+                    >
+                        {item.label}
+                    </a>
+                </li>
             {/each}
         </ul>
     {/if}
