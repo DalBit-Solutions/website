@@ -1,71 +1,80 @@
 class ProtectedElement {
-    constructor(element) {
-        // TODO: Funktionen von unten in diese Klasse schieben
-    }
-}
-
-(() => {
-    const transition = {
-        durationMs: 250,
-        property: 'opacity',
-        values: [ 0, 1 ]
-    };
-
-    async function setUpTransition(element) {
-        element.style.transitionProperty = transition.property;
-        element.style.transitionDuration = transition.durationMs + 'ms';
-
-        return new Promise((resolve) => {
-            element.addEventListener('transitionend', resolve);
+    static protectAll() {
+        const protectedElements = document.querySelectorAll('[data-anti-spam]');
+        protectedElements.forEach((element) => {
+            const protectedElement = new ProtectedElement(element);
+            protectedElement.activateProtection();
+            element.removeAttribute('data-anti-spam');
         });
     }
 
-    async function fadeOut(element) {
-        const promise = setUpTransition(element);
-        element.style[transition.property] = transition.values[0];
-        return promise;
+    constructor(element) {
+        this.element = element;
+        this.rendered = false;
+        this.transition = {
+            durationMs: 250,
+            property: 'opacity',
+            values: [0, 1]
+        };
     }
-    
-    async function fadeIn(element) {
-        const promise = setUpTransition(element);
-        element.style[transition.property] = transition.values[1];
+
+    async waitForTransition() {
+        return new Promise((resolve) => {
+            this.element.addEventListener('transitionend', resolve, { once: true });
+        });
+    }
+
+    setUpTransition() {
+        this.element.style.transitionProperty = this.transition.property;
+        this.element.style.transitionDuration = this.transition.durationMs + 'ms';
+    }
+
+    async fadeOut() {
+        const promise = this.waitForTransition();
+        this.element.style[this.transition.property] = this.transition.values[0];
         return promise;
     }
 
-    function swapContent(element) {
-        element.innerHTML = element.dataset.content;
+    async fadeIn() {
+        const promise = this.waitForTransition();
+        this.element.style[this.transition.property] = this.transition.values[1];
+        return promise;
     }
 
-    function swapAttributes(element) {
-        if (Object.hasOwn(element.dataset, 'href')) {
-            element.setAttribute('href', element.dataset['href']);
+    swapContent() {
+        this.element.innerHTML = this.element.dataset.content;
+    }
+
+    swapAttributes() {
+        if (Object.hasOwn(this.element.dataset, 'href')) {
+            this.element.setAttribute('href', this.element.dataset['href']);
         }
     }
 
-    function markSwapped(element) {
-        element.removeAttribute('data-anti-spam');
+    async render() {
+        if (!this.rendered) {
+            await this.fadeOut();
+            this.swapContent();
+            this.swapAttributes();
+            await this.fadeIn();
+            this.rendered = true;
+        }
     }
 
-    async function render(element) {
-        await fadeOut(element);
-        swapContent(element);
-        swapAttributes(element);
-        markSwapped(element);
-        fadeIn(element);
+    registerEventListeners() {
+        const callback = () => this.render();
+        const options = { once: true };
+
+        document.body.addEventListener('mousemove', callback, options);
+        document.body.addEventListener('click', callback, options);
+        document.addEventListener('scroll', callback, options);
+        window.addEventListener('keydown', callback, options);
     }
 
-    function renderAll() {
-        const protectedElements = document.querySelectorAll('[data-anti-spam]');
-
-        protectedElements.forEach(render);
+    activateProtection() {
+        this.setUpTransition();
+        this.registerEventListeners();
     }
+}
 
-    const body = document.body;
-    const options = { once: true };
-
-    body.addEventListener('mousemove', renderAll, options);
-    body.addEventListener('click', renderAll, options);
-    document.addEventListener('scroll', renderAll, options);
-    window.addEventListener('keydown', renderAll, options);
-})();
-
+document.addEventListener('DOMContentLoaded', ProtectedElement.protectAll);
