@@ -1,71 +1,87 @@
 class ProtectedElement {
-    constructor(element) {
-        // TODO: Funktionen von unten in diese Klasse schieben
-    }
-}
-
-(() => {
-    const transition = {
-        durationMs: 250,
-        property: 'opacity',
-        values: [ 0, 1 ]
-    };
-
-    async function setUpTransition(element) {
-        element.style.transitionProperty = transition.property;
-        element.style.transitionDuration = transition.durationMs + 'ms';
-
-        return new Promise((resolve) => {
-            element.addEventListener('transitionend', resolve);
+    static protectAll() {
+        const protectedElements = document.querySelectorAll('[data-content-src]');
+        protectedElements.forEach((element) => {
+            const protectedElement = new ProtectedElement(element);
+            protectedElement.activateProtection();
         });
     }
 
-    async function fadeOut(element) {
-        const promise = setUpTransition(element);
-        element.style[transition.property] = transition.values[0];
-        return promise;
+    constructor(element) {
+        this.original = element;
+        this.substitute = this.findSubstitute();
+        this.rendered = false;
+        this.transition = {
+            durationMs: 250,
+            property: 'opacity',
+        };
+
+        this.setUpTransitions();
     }
-    
-    async function fadeIn(element) {
-        const promise = setUpTransition(element);
-        element.style[transition.property] = transition.values[1];
+
+    findSubstitute() {
+        const selector = this.original.dataset.contentSrc;
+        const template = document.querySelector(selector);
+        const clone = template.content.cloneNode(true);
+        return clone.firstElementChild;
+    }
+
+    setUpTransition(target, initialValue) {
+        target.style[this.transition.property] = initialValue;
+        target.style.transitionProperty = this.transition.property;
+        target.style.transitionDuration = this.transition.durationMs + 'ms';
+        console.log(target);
+    }
+
+    setUpTransitions() {
+        this.setUpTransition(this.original, 1);
+        this.setUpTransition(this.substitute, 0);
+    }
+
+    async waitForTransition(target) {
+        return new Promise((resolve) => {
+            target.addEventListener('transitionend', resolve, { once: true });
+        });
+    }
+
+    async fade(target, inOut) {
+        const promise = this.waitForTransition(target);
+        target.style[this.transition.property] = +inOut;
         return promise;
     }
 
-    function swapContent(element) {
-        element.innerHTML = element.dataset.content;
+    async fadeOut() {
+        return this.fade(this.original, false);
     }
 
-    function swapAttributes(element) {
-        if (Object.hasOwn(element.dataset, 'href')) {
-            element.setAttribute('href', element.dataset['href']);
+    async fadeIn() {
+        return this.fade(this.substitute, true);
+    }
+
+    swap() {
+        const parent = this.original.parentElement;
+        parent.insertBefore(this.substitute, this.original);
+        parent.removeChild(this.original);
+    }
+
+    async render() {
+        if (!this.rendered) {
+            await this.fadeOut();
+            this.swap();
+            await this.fadeIn();
+            this.rendered = true;
         }
     }
 
-    function markSwapped(element) {
-        element.removeAttribute('data-anti-spam');
+    activateProtection() {
+        const callback = () => this.render();
+        const options = { once: true };
+
+        document.body.addEventListener('mousemove', callback, options);
+        document.body.addEventListener('click', callback, options);
+        document.addEventListener('scroll', callback, options);
+        window.addEventListener('keydown', callback, options);
     }
+}
 
-    async function render(element) {
-        await fadeOut(element);
-        swapContent(element);
-        swapAttributes(element);
-        markSwapped(element);
-        fadeIn(element);
-    }
-
-    function renderAll() {
-        const protectedElements = document.querySelectorAll('[data-anti-spam]');
-
-        protectedElements.forEach(render);
-    }
-
-    const body = document.body;
-    const options = { once: true };
-
-    body.addEventListener('mousemove', renderAll, options);
-    body.addEventListener('click', renderAll, options);
-    document.addEventListener('scroll', renderAll, options);
-    window.addEventListener('keydown', renderAll, options);
-})();
-
+document.addEventListener('DOMContentLoaded', ProtectedElement.protectAll);
