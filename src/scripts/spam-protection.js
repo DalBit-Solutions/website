@@ -1,67 +1,79 @@
 class ProtectedElement {
     static protectAll() {
-        const protectedElements = document.querySelectorAll('[data-anti-spam]');
+        const protectedElements = document.querySelectorAll('[data-content-src]');
         protectedElements.forEach((element) => {
             const protectedElement = new ProtectedElement(element);
             protectedElement.activateProtection();
-            element.removeAttribute('data-anti-spam');
         });
     }
 
     constructor(element) {
-        this.element = element;
+        this.original = element;
+        this.substitute = this.findSubstitute();
         this.rendered = false;
         this.transition = {
             durationMs: 250,
             property: 'opacity',
-            values: [0, 1]
         };
+
+        this.setUpTransitions();
     }
 
-    async waitForTransition() {
+    findSubstitute() {
+        const selector = this.original.dataset.contentSrc;
+        const template = document.querySelector(selector);
+        const clone = template.content.cloneNode(true);
+        return clone.firstElementChild;
+    }
+
+    setUpTransition(target, initialValue) {
+        target.style[this.transition.property] = initialValue;
+        target.style.transitionProperty = this.transition.property;
+        target.style.transitionDuration = this.transition.durationMs + 'ms';
+        console.log(target);
+    }
+
+    setUpTransitions() {
+        this.setUpTransition(this.original, 1);
+        this.setUpTransition(this.substitute, 0);
+    }
+
+    async waitForTransition(target) {
         return new Promise((resolve) => {
-            this.element.addEventListener('transitionend', resolve, { once: true });
+            target.addEventListener('transitionend', resolve, { once: true });
         });
     }
 
-    setUpTransition() {
-        this.element.style.transitionProperty = this.transition.property;
-        this.element.style.transitionDuration = this.transition.durationMs + 'ms';
+    async fade(target, inOut) {
+        const promise = this.waitForTransition(target);
+        target.style[this.transition.property] = +inOut;
+        return promise;
     }
 
     async fadeOut() {
-        const promise = this.waitForTransition();
-        this.element.style[this.transition.property] = this.transition.values[0];
-        return promise;
+        return this.fade(this.original, false);
     }
 
     async fadeIn() {
-        const promise = this.waitForTransition();
-        this.element.style[this.transition.property] = this.transition.values[1];
-        return promise;
+        return this.fade(this.substitute, true);
     }
 
-    swapContent() {
-        this.element.innerHTML = this.element.dataset.content;
-    }
-
-    swapAttributes() {
-        if (Object.hasOwn(this.element.dataset, 'href')) {
-            this.element.setAttribute('href', this.element.dataset['href']);
-        }
+    swap() {
+        const parent = this.original.parentElement;
+        parent.insertBefore(this.substitute, this.original);
+        parent.removeChild(this.original);
     }
 
     async render() {
         if (!this.rendered) {
             await this.fadeOut();
-            this.swapContent();
-            this.swapAttributes();
+            this.swap();
             await this.fadeIn();
             this.rendered = true;
         }
     }
 
-    registerEventListeners() {
+    activateProtection() {
         const callback = () => this.render();
         const options = { once: true };
 
@@ -69,11 +81,6 @@ class ProtectedElement {
         document.body.addEventListener('click', callback, options);
         document.addEventListener('scroll', callback, options);
         window.addEventListener('keydown', callback, options);
-    }
-
-    activateProtection() {
-        this.setUpTransition();
-        this.registerEventListeners();
     }
 }
 
