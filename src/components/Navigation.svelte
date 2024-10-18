@@ -14,11 +14,12 @@
 <nav class="container">
     <ul>
         <li>
-            <a title="Startseite" href="/"
+            <a href="/"
                 ><img
                     src={dalBitLogoTextSvg.src}
+                    height="32"
                     width="117"
-                    alt="DalBit Logo"
+                    alt="DalBit Logo, Zur Startseite"
                     class="logo"
                 /></a
             >
@@ -45,10 +46,7 @@
         <ul class="display-none display-flex-large">
             {#each menuItems as item, index}
                 <li>
-                    <a
-                        href={item.href}
-                        class={index === menuItems.length - 1 ? "contrast" : ""}
-                    >
+                    <a href={item.href}>
                         {item.label}
                     </a>
                 </li>
