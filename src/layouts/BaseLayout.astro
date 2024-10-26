@@ -41,7 +41,8 @@ const year = (new Date()).getFullYear();
                         <li><a href="/datenschutz">Datenschutz</a></li>
                         <li><a href="/impressum">Impressum</a></li>
                         <li><a href="/kontakt">Kontakt</a></li>
-                        <li>© 2024 DalBit Solutions - Alexander Fridlin</li>
+                        <li><a href="https://linkedin.com/company/dalbit-solutions" target="_blank"><span class="linkedin">Linked<span>in</span></span></a></li>
+                        <li>© {year} DalBit Solutions - Alexander Fridlin</li>
                     </ul>
                 </nav>
             </aside>
@@ -51,6 +52,7 @@ const year = (new Date()).getFullYear();
                     <li><a href="/datenschutz">Datenschutz</a></li>
                     <li><a href="/impressum">Impressum</a></li>
                     <li><a href="/kontakt">Kontakt</a></li>
+                    <li><a href="https://linkedin.com/company/dalbit-solutions" target="_blank"><span class="linkedin">Linked<span>in</span></span></a></li>
                 </ul>
                 <ul>
                     <li>© {year} DalBit Solutions - Alexander Fridlin</li>
@@ -78,5 +80,20 @@ const year = (new Date()).getFullYear();
 
     aside.anchors ul {
         background-color: var(--pico-background-color);
+    }
+
+    .linkedin {
+        font-weight: bold;
+    }
+
+    .linkedin > span {
+        background-color: var(--pico-primary-background);
+        border-radius: 2px;
+        color: var(--pico-primary-inverse);
+        display: inline-block;
+        line-height: 1;
+        margin-left: 0.1rem;
+        padding: 0.1rem;
+        padding-right: 0.15rem;
     }
 </style>
